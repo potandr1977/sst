@@ -56,8 +56,8 @@ public class PersonServiceImpl implements PersonService {
     public Mono<Person> createNewPerson(CreatePersonDto personDto) {
         var person = Person.create(personDto.name(), personDto.inn());
         return busService.publishPersonCreated(person).then(Mono.defer(()->{
-                    return save(person)
-                            .onErrorMap( ex -> new MessageDeliveryException(
+                     return save(person)
+                       .onErrorMap( ex -> new MessageDeliveryException(
                             "Person was not saved, name: "+personDto.name() + ", inn: "+personDto.inn()));
         }));
     }

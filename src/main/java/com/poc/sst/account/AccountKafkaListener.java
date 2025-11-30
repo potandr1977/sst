@@ -49,8 +49,5 @@ public class AccountKafkaListener {
                 break;
             default: return;
         }
-
-        var event = gson.fromJson(message, DomainEvent.class);
-
     }
 }

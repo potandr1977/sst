@@ -22,7 +22,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class AccountServiceImpl implements AccountService {
 
-
+    @Autowired
     private AccountRepository accountRepository;
     @Autowired
     private AccountBusService busService;
@@ -79,6 +79,5 @@ public class AccountServiceImpl implements AccountService {
     public Mono<Void> deleteAll() {
         return accountRepository.deleteAll();
     }
-
 }
 
