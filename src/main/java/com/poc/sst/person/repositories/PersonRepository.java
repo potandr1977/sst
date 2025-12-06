@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;
 
 @Repository
-public interface PersonRepository extends ReactiveMongoRepository<Person, String> {
+public interface PersonRepository extends ReactiveMongoRepository<Person, String>, PersonRepositoryCustom {
     Flux<Person> findByNameContaining(String name);
 }

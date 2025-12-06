@@ -46,7 +46,7 @@ public class PersonController {
 
     @PutMapping
     @ResponseStatus(HttpStatus.OK)
-    public Mono<Person> updatePerson(@RequestBody Person Person) {
+    public Mono<Void> updatePerson(@RequestBody Person Person) {
         return personService.update(Person);
     }
 

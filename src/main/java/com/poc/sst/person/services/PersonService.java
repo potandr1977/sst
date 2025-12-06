@@ -17,7 +17,7 @@ public interface PersonService {
 
     Mono<Person> createNewPerson(CreatePersonDto createPersonDto);
 
-    Mono<Person> update(Person person);
+    Mono<Void> update(Person person);
 
     Mono<Void> deleteById(String id);
 

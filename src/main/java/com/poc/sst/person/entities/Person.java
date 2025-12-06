@@ -40,4 +40,22 @@ public class Person {
     public void setInn(String newInn) {
         inn = newInn.replaceAll("[^0-9]", "");
     }
+
+    // equals и hashCode
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true; // сравнение по ссылке
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Person person = (Person) o;
+        return id.equals(person.id)
+               && inn.equals(person.inn)
+               && name.equals(person.name)
+               && Objects.equals(name, person.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, inn);
+    }
 }

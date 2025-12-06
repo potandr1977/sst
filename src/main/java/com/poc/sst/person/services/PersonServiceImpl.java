@@ -15,7 +15,6 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
 @Slf4j
 @Service
@@ -62,15 +61,9 @@ public class PersonServiceImpl implements PersonService {
         }));
     }
 
-    public Mono<Person> update(Person person) {
-        return personRepository.findById(person.getId()).map(Optional::of).defaultIfEmpty(Optional.empty())
-                .flatMap(optionalPerson -> {
-                    if (optionalPerson.isPresent()) {
-                        return personRepository.save(person);
-                    }
-
-                    return Mono.empty();
-                });
+    public Mono<Void> update(Person person) {
+        return personRepository.findById(person.getId())
+                .flatMap(oldPerson -> personRepository.update(oldPerson, person));
     }
 
     public Mono<Void> deleteById(String id) {
@@ -80,6 +73,5 @@ public class PersonServiceImpl implements PersonService {
     public Mono<Void> deleteAll() {
         return personRepository.deleteAll();
     }
-
 }
 
