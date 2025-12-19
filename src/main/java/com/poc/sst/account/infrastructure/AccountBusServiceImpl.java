@@ -1,8 +1,8 @@
-package com.poc.sst.account.services;
+package com.poc.sst.account.infrastructure;
 
 import com.google.gson.Gson;
 import com.poc.sst.account.dtos.CreateAccountDto;
-import com.poc.sst.person.dtos.CreatePersonDto;
+import com.poc.sst.account.services.AccountBusService;
 import com.poc.sst.utils.KafkaUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.kafka.core.KafkaTemplate;

@@ -1,8 +1,9 @@
-package com.poc.sst.person.services;
+package com.poc.sst.person.infrastructure;
 
 import com.google.gson.Gson;
 import com.poc.sst.event.PersonCreated;
 import com.poc.sst.person.entities.Person;
+import com.poc.sst.person.services.PersonBusService;
 import com.poc.sst.utils.KafkaUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.kafka.core.KafkaTemplate;
